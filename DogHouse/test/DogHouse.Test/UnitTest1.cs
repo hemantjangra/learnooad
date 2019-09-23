@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace DogHouse.Tests
+namespace DogHouse.Test
 {
     public class UnitTest1
     {

@@ -2,6 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DBOps.DBContext;
+using DBOps.Repository;
+using DBOps.UOW;
+using DogHouse.DBRepository;
+using DogHouse.DoorHelper;
+using DogHouse.Entities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,6 +32,14 @@ namespace DogHouse
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddScoped<IDogDoorOperations, DogDoorOperations>();
+            services.AddScoped<IRemoteOperations, RemoteOperations>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<IMongoContext>(sp => 
+                                new MongoContext(Configuration.GetValue<string>("mongoSettings:connectionString"), 
+                                                 Configuration.GetValue<string>("mongoSettings:databaseName")));
+            services.AddScoped<IDoorRepository, DoorRepository>();
+            services.Configure<AppSettings>(Configuration);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

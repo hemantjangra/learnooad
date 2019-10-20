@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DBOps\DBOps.csproj" />
   </ItemGroup>
 
   <ItemGroup>

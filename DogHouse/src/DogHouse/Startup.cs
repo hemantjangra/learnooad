@@ -34,6 +34,8 @@ namespace DogHouse
             services.AddControllers();
             services.AddScoped<IDogDoorOperations, DogDoorOperations>();
             services.AddScoped<IRemoteOperations, RemoteOperations>();
+            services.AddScoped<IBarkOperations, BarkOperations>();
+            services.AddScoped<IBarkRecogniser, BarkRecogniser>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IMongoContext>(sp => 
                                 new MongoContext(Configuration.GetValue<string>("mongoSettings:connectionString"), 

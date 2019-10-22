@@ -1,9 +1,10 @@
-using DogHouse.Models;
+using System.Threading.Tasks;
+using DogHouse.Entities;
 
 namespace DogHouse.DoorHelper
 {
     public interface IBarkRecogniser
     {
-         void Recognize(Bark bark);
+         Task<bool> IsAllowedBark(string id, string bark);
     }
 }

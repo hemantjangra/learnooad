@@ -31,9 +31,9 @@ namespace DogHouse.Controllers
         }
 
         [HttpGet("bark/{id}")]
-        public async Task<IActionResult> BarkOp([FromRoute]Guid id)
+        public async Task<IActionResult> BarkOp(Guid id, [FromQuery]string sound)
         {
-            await _barkOperations.Bark(id);
+            await _barkOperations.Bark(id, sound);
             return Ok();
         }
     }

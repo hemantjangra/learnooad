@@ -6,5 +6,6 @@ namespace DogHouse.Entities
     {
         public string Id { get; set; }
         public bool Open { get; set; }
+        public Bark Barks { get; set; }
     }
 }

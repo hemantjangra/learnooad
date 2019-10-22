@@ -5,6 +5,6 @@ namespace DogHouse.DoorHelper
 {
     public interface IBarkOperations
     {
-         Task Bark(Guid id);
+         Task Bark(Guid id, string sound);
     }
 }
